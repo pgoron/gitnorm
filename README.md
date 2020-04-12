@@ -11,6 +11,7 @@ git commit -m "initial commit"
 ```
 
 # Verifying git setup
+Checking that git is not rewritting files by default
 ```
 $ git rm -r --cached .
 rm 'README.md'
@@ -118,8 +119,14 @@ When they will receive the commit containing the normalization of end of lines, 
 
 During rebase / merge, users will face conflicts due to difference of line endings on files that where initially with CRLF eol. These conflicts can be ignored automatically by passing `-s recursive -X renormalize` to `git rebase` or `git merge` commands.
 
-* Linux, Mac, Windows/Cygwin users:
-
-* Windows / gitforwindows users:
-    As described above text files that were initially in LF mode won't be automatically rewritten to use CRLF in working tree if they haven't been modified in parent commit. Users will have to do `git rm -r --cached . && git reset --hard` to get platform line
+NB: Windows / gitforwindows users:
+    As described above, text files that were initially in LF mode won't be automatically rewritten to use CRLF in working tree if they haven't been modified in parent commit. Users will have to do `git rm -r --cached . && git reset --hard` to get platform line
     endings.
+
+
+## Tested git version
+| Platform | Version |
+| -------- | ------- |
+| Linux | 2.20.1 |
+| Windows + git for windows | 2.22.0 |
+| Windows + git from cygwin | 2.21.0 |
